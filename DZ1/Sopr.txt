@@ -1,0 +1,25 @@
+1. -- Hello, World! --
+      program.cpp
+      program.ii
+      program.s
+      program.o
+      program.exe
+
+
+2. -- Hello, GeekBrains! --
+   -- edit file .s (asm) --
+
+      program2.s
+      program2.o
+      program2.exe      
+
+3. --      error         --
+   -- edit file .o (компановка)
+      program3.o
+
+4. -- Hi, Geekbrain --
+   -- edit file .o (компановка)    
+      program4.o
+      program4.exe 
+
+
