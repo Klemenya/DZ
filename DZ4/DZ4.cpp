@@ -12,13 +12,13 @@ int main() {
         std::cin >> num1 >> num2;
 
             /* ----- tern ----- */
-        temp = (( num1 + num2 ) >= 10  and ( num1 + num2 ) <= 20 );
+        temp = (( ( num1 + num2 ) >= 10)  && (( num1 + num2 ) <= 20 ));
         std::cout << "Ternary : ";
         std::cout << ((temp == true) ? "true\n" : "false\n");
 
             /* ----- if else -- */
         std::cout << "If - else : ";
-        if ((num1 + num2 >= 10) and (num1 + num2 <= 20)){
+        if ((num1 + num2 >= 10) && (num1 + num2 <= 20)){
             std::cout << "true\n";}
         else {
             std::cout << "false\n";}
@@ -52,20 +52,20 @@ int main() {
         std::cout << "Enter the second number > ";
         std::cin >> num2;
     
-        if (num1 == 10 or num2 == 10 or (num1 + num2)== 10)
-            cout <<"\n True\n";
+        if (num1 == 10 || num2 == 10 || (num1 + num2)== 10)
+            std::cout <<"\n True\n";
     }
 
     /* ---------------------------  4  -----------------*/
     std::cout << '\n' << " ---- DZ4 --- task 4 ----\n";
     std::cout << "Enter the year to check for leap years : ";
     int year;
-    cin >> year;
+    std::cin >> year;
     
-    if  ((year%4 == 0 and year%100 == 0 and year%400 == 0) or (year%4 == 0 and year%100 != 0))
-        cout <<'\n' << year << " the year is a leap year\n";
+    if  ((year%4 == 0 && year%100 == 0 && year%400 == 0) || (year%4 == 0 && year%100 != 0))
+        std::cout <<'\n' << year << " the year is a leap year\n";
     else 
-        cout <<'\n' << year << " the year is a NOT leap year\n";
+        std::cout <<'\n' << year << " the year is a NOT leap year\n";
 
     bool l1,l2,l3;
     l1 = year%4 == 0;
@@ -78,10 +78,10 @@ int main() {
     //  0   x   x   -   false
     //  1   1   0   -   false
 
-    if (( l1 and l2 and l3 ) or ( l1 and ! l2 and ! l3))
-        cout <<'\n' << year << " the year is a leap year\n";
+    if (( l1 && l2 && l3 ) || ( l1 && ! l2 && ! l3)){
+        std::cout <<'\n' << year << " the year is a leap year\n";}
     else 
-        cout <<'\n' << year << " the year is a NOT leap year\n" ;
+        std::cout <<'\n' << year << " the year is a NOT leap year\n" ;
 
     return 0;
-    };
+    }; 
