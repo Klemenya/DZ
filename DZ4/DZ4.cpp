@@ -4,69 +4,73 @@ int main() {
     
     
     /* ---------------------------  1  -----------------*/
-    
-    int n,m;
-    bool temp;
-    std::cout << " ---- DZ4 --- task 1 ----" << std::endl;
-    std::cout << "Enter 2 numbers: " << std::endl;
-    std::cin >> n >> m;
+    {
+        int num1, num2;
+        bool temp;
+        std::cout << " ---- DZ4 --- task 1 ----\n";
+        std::cout << "Enter 2 numbers: \n";
+        std::cin >> num1 >> num2;
 
             /* ----- tern ----- */
-    temp = (((n+m) >= 10)  and ((n+m) <= 20));
-    std::cout << "Method ternary : ";
-    std::cout << ((temp == true) ? "true" : "false") << '\n';
+        temp = (( num1 + num2 ) >= 10  and ( num1 + num2 ) <= 20 );
+        std::cout << "Ternary : ";
+        std::cout << ((temp == true) ? "true\n" : "false\n");
 
             /* ----- if else -- */
-    std::cout << "Method If - else : ";
-    if ((n+m >= 10) and (n+m <= 20)){
-        std::cout << "true" << '\n';}
-    else {std::cout << "false" << '\n';}
+        std::cout << "If - else : ";
+        if ((num1 + num2 >= 10) and (num1 + num2 <= 20)){
+            std::cout << "true\n";}
+        else {
+            std::cout << "false\n";}
+    }
 
     /* ---------------------------  2  -----------------*/
         
-    std::cout << '\n' << " ---- DZ4 --- task 2 ----" << '\n';
-    std::cout << " Enter a number to check " << '\n';
-    std::cin >> n;
+    std::cout << "\n ---- DZ4 --- task 2 ----\n";
+    std::cout << " Enter a number to check \n";
+    int number;
+    std::cin >> number;
     int c=0;
     
-    for (int i=1; i<=n;i++){
-        if (n%i == 0 ){c++;}
+    for (int i=1; i<=number;i++){
+        if (number%i == 0 ){c++;}
             if (c > 2) break;
     }
-    
+
     if (c!=2)  
-        cout << '\n' << n <<  " - this is a not natural number" << '\n';
+        std::cout << '\n' << number <<  " - this is a not prime number\n";
         
-    else cout << '\n' << n <<  " - this is a natural number"<< '\n';
+    else std::cout << '\n' << number <<  " - this is a prime number\n";
 
     /* ---------------------------  3  -----------------*/
     
-    std::cout << '\n'  << " ---- DZ4 --- task 3 ----" << '\n';
-
-    int e=5, f= 5;
+    std::cout << "\n ---- DZ4 --- task 3 ----\n";
+    {
+        int num1, num2;
+        std::cout << "Enter the first number > ";
+        std::cin >> num1;
+        std::cout << "Enter the second number > ";
+        std::cin >> num2;
     
-    if (e == 10 or f == 10 or (e + f)== 10)
-        cout <<'\n' << "True"<<std::endl;
+        if (num1 == 10 or num2 == 10 or (num1 + num2)== 10)
+            cout <<"\n True\n";
+    }
 
     /* ---------------------------  4  -----------------*/
-    std::cout << '\n' << " ---- DZ4 --- task 4 ----" << '\n';
+    std::cout << '\n' << " ---- DZ4 --- task 4 ----\n";
     std::cout << "Enter the year to check for leap years : ";
     int year;
     cin >> year;
     
     if  ((year%4 == 0 and year%100 == 0 and year%400 == 0) or (year%4 == 0 and year%100 != 0))
-        cout <<'\n' << year << " the year is a leap year"<< std::endl;
+        cout <<'\n' << year << " the year is a leap year\n";
     else 
-        cout <<'\n' << year << " the year is a NOT leap year"<< std::endl;
+        cout <<'\n' << year << " the year is a NOT leap year\n";
 
     bool l1,l2,l3;
-        l1 = year%4 == 0;
-        l2 = year%100 == 0;
-        l3 = year%400 == 0;
-
-    /* cout << l1 << std::endl;
-    cout << l2 << std::endl;
-    cout << l3 << std::endl; */        
+    l1 = year%4 == 0;
+    l2 = year%100 == 0;
+    l3 = year%400 == 0;
 
     //  l1  l2  l3   
     //  1   0   x   -   true
@@ -74,10 +78,10 @@ int main() {
     //  0   x   x   -   false
     //  1   1   0   -   false
 
-    if ((l1 and l2 and l3) or (l1==true and l2 != true and l3!=true))
-        cout <<'\n' << year << " the year is a leap year"<< std::endl;
+    if (( l1 and l2 and l3 ) or ( l1 and ! l2 and ! l3))
+        cout <<'\n' << year << " the year is a leap year\n";
     else 
-        cout <<'\n' << year << " the year is a NOT leap year"<< std::endl;
+        cout <<'\n' << year << " the year is a NOT leap year\n" ;
 
     return 0;
     };
