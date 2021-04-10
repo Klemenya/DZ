@@ -52,7 +52,7 @@ int main() {
         std::cout << "Enter the second number > ";
         std::cin >> num2;
     
-        if (num1 == 10 || num2 == 10 || (num1 + num2)== 10)
+        if ((num1 == 10 && num2 == 10) || (num1 + num2)== 10)
             std::cout <<"\n True\n";
     }
 
