@@ -1,4 +1,5 @@
 #include <iostream>
+#include <stdarg.h>
 
 
 void revers (int m[10])  
@@ -6,10 +7,8 @@ void revers (int m[10])
      for (int i=0;i < 10;i++)
         m[i] = ((m[i] == 0) ? 1 : 0);
        
-       /*  if (m[i]==0)
-            m[i]=1;
-        else
-            m[i]=0; */ 
+       /*  if (m[i]==0) m[i]=1;
+        else m[i]=0; */ 
 }
 
 void revers2 (int m[10]) {
@@ -22,8 +21,13 @@ void revers3 (int m[10]) {
         m[i] = !m[i];
 }
 
-void revers4 (int m[10]){
-    m[10] = ! m[10];
+int rev (int num, ...){
+        va_list pointer;
+        va_start(pointer,num);
+        for (int j=0;j < num;j++)
+            std::cout << !va_arg(pointer, int)<< ' ';
+        va_end(pointer);
+    return 0;
 }
 
 void PlusThree (int m2[8])
@@ -36,7 +40,8 @@ void PlusThree (int m2[8])
         }
         else {
             temp = (temp+3);
-            m2[i] = temp;}
+            m2[i] = temp;
+        }
 }
 
 void PlusThree2 (int m2[8],int s)
@@ -60,13 +65,11 @@ bool FindSameVal (int m3[5])
     int sumall = 0;
     for(int i = 0; i <5 ; i++)
         sumall += m3[i];
-    
     int temp = 0;
     for(int i = 0; i <5 ; i++){
         temp = temp + m3[i];
-        if (temp == (sumall-temp)){
+        if (temp == (sumall-temp))
             return true;
-        }
     }
 
     return false;
@@ -139,15 +142,16 @@ int main()
     std::cout << '\n' << "reverse3 array logic !: ";
     print_mas (&mas_3[0],lenm);
 
-                                                /*  revers4(mas_4);
-                                                    std::cout << '\n' << "reverse4 m[10]=!m[10] : ";
-                                                    print_mas (&mas_4[0],lenm); */
-
+    /* revers4(&mas_4);
+    std::cout << '\n' << "reverse4 m[10]=!m[10] : ";
+    //mas_4[10] = ! mas_4[10];
+    print_mas (&mas_4[0],lenm);
+ */
     /* ----------------- 2 ------------------ */
     /*2.	Задать пустой целочисленный массив размером 8. Написать функцию,
       которая с помощью цикла заполнит его значениями 1 4 7 10 13 16 19 22;*/
     printf("\n\n---------- exercise 2 ----------\n");
-    int mas2[8], s=1;
+    int mas2[8]{}, s=1;
     PlusThree (mas2);
     std::cout << "init array : ";
     print_mas (mas2,sizeof(mas2)/sizeof(int));
@@ -192,6 +196,19 @@ int main()
     shift = 5;
     ShiftBy(mas4 ,shift);
     print_mas (mas4,sizeof(mas4)/sizeof(int));
+
+    /* ----------------- 5 ------------------ */
+    printf("\n---------- exercise 5 ----------\n");
+    
+    rev (10, 0,1,0,1,0,1,0,1,1,1);
+    
+    /* ----------------- 6 ------------------ */
+    /* Написать все функции в отдельных файлах в одном пространстве имён, 
+    вызвать их на исполнение в основном файле программы используя указатели на функции. */
+
+
+
+
 
     return 0;
 }
