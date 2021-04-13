@@ -9,26 +9,28 @@ void revers (int m[10])
        
        /*  if (m[i]==0) m[i]=1;
         else m[i]=0; */ 
-}
+};
 
 void revers2 (int m[10]) {
     for (int i=0;i < 10;i++)
         m[i] = (m[i]^1);
-}
+};
 
 void revers3 (int m[10]) {
     for (int i=0; i < 10;i++)
         m[i] = !m[i];
-}
+};
 
-int rev (int num, ...){
-        va_list pointer;
-        va_start(pointer,num);
-        for (int j=0;j < num;j++)
-            std::cout << !va_arg(pointer, int)<< ' ';
-        va_end(pointer);
+int revers4 (int m[10],int i){
+    m[i]=!m[i];
+    i++;
+    if(i==10){
+        return 0;
+    }
+    revers4 (m,i);
     return 0;
 }
+
 
 void PlusThree (int m2[8])
 {
@@ -42,7 +44,7 @@ void PlusThree (int m2[8])
             temp = (temp+3);
             m2[i] = temp;
         }
-}
+};
 
 void PlusThree2 (int m2[8],int s)
 {   
@@ -54,8 +56,7 @@ void PlusThree2 (int m2[8],int s)
         s++;
         PlusThree2 (&m2[8], s);
     }
-}
-
+};
 
 
 
@@ -73,7 +74,7 @@ bool FindSameVal (int m3[5])
     }
 
     return false;
-}
+};
 
 int ShiftBy (int m[10], int s){
 
@@ -98,14 +99,21 @@ int ShiftBy (int m[10], int s){
         }
     }
     return 0;
-}
+};
 
+int rev (int num, ...){
+        va_list pointer;
+        va_start(pointer,num);
+        for (int j=0;j < num;j++)
+            std::cout << !va_arg(pointer, int)<< ' ';
+        va_end(pointer);
+    return 0;
+};
 
 void print_mas (int* m, int len){
     for (int i=0; i < len; i++)
         std::cout <<m[i] <<' ';
-}
-
+};
 
 
 
@@ -125,60 +133,49 @@ int main()
     for (int i=0; i<10;i++){
         mas_2[i]=mas[i];
         mas_3[i]=mas[i];
-        mas_4[i]=mas[i];}
+        mas_4[i]=mas[i];
+        }
 
-    std::cout << '\n' << "initial array         : ";
+    std::cout << '\n' << "initial array         :   ";
     print_mas (&mas[0],lenm);
 
     revers(mas);
-    std::cout << '\n' << "reverse array ternary : ";
+    std::cout << '\n' << "reverse array ternary :   ";
     print_mas (&mas[0],lenm);
 
     revers2(mas_2);
-    std::cout << '\n' << "reverse2 array logic ^: ";
+    std::cout << '\n' << "reverse2 array logic ^:   ";
     print_mas (&mas_2[0],lenm);
 
     revers3(mas_3);
-    std::cout << '\n' << "reverse3 array logic !: ";
+    std::cout << '\n' << "reverse3 array logic !:   ";
     print_mas (&mas_3[0],lenm);
 
-    /* revers4(&mas_4);
-    std::cout << '\n' << "reverse4 m[10]=!m[10] : ";
-    //mas_4[10] = ! mas_4[10];
+    int i=0;
+    revers4 (mas_4, i);
+    std::cout << '\n' << "reverse4 array recursion: ";
     print_mas (&mas_4[0],lenm);
- */
+
+    
     /* ----------------- 2 ------------------ */
-    /*2.	Задать пустой целочисленный массив размером 8. Написать функцию,
-      которая с помощью цикла заполнит его значениями 1 4 7 10 13 16 19 22;*/
-    printf("\n\n---------- exercise 2 ----------\n");
+        printf("\n\n---------- exercise 2 ----------\n");
     int mas2[8]{}, s=1;
     PlusThree (mas2);
-    std::cout << "init array : ";
+    std::cout << "- for - if - else - : ";
     print_mas (mas2,sizeof(mas2)/sizeof(int));
-    std::cout << std::endl << "recursion  : ";;
+    std::cout << std::endl << "- recursion         : ";;
     PlusThree2 (mas2,s);
     print_mas (mas2,sizeof(mas2)/sizeof(int));
 
     
     /* ----------------- 3 ------------------ */
-    /* Написать функцию, в которую передается не пустой одномерный целочисленный
-       массив, функция должна вернуть истину если в массиве есть место, в котором
-       сумма левой и правой части массива равны. Примеры:
-       checkBalance([1, 1, 1, || 2, 1]) → true, checkBalance ([2, 1, 1, 2, 1]) → false,
-       checkBalance ([10, || 1, 2, 3, 4]) → true. Абстрактная граница показана
-       символами ||, эти символы в массив не входят.
-    */
     printf("\n\n---------- exercise 3 ----------\n");
-    //int mas3[5]={1, 1, 1, 2, 1};
-    //int mas3[5]={2, 1, 1, 2, 1};
-
     int mas3[5] = {10, 1, 2, 3, 4};
-    std::cout << FindSameVal (mas3);
+    print_mas (mas3,sizeof(mas3)/sizeof(int));
+    std::cout << '\n' << std::boolalpha << FindSameVal (mas3);
+
 
     /* ----------------- 4 ------------------ */
-    /*Написать функцию, которой на вход подаётся одномерный массив и число n (может
-    быть положительным, или отрицательным), при этом функция должна циклически сместить
-    все элементы массива на n позиций. */
     printf("\n---------- exercise 4 ----------\n");
 
     int mas4[10]={0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
@@ -197,18 +194,11 @@ int main()
     ShiftBy(mas4 ,shift);
     print_mas (mas4,sizeof(mas4)/sizeof(int));
 
+
     /* ----------------- 5 ------------------ */
     printf("\n---------- exercise 5 ----------\n");
-    
+    std::cout << std::noboolalpha;
     rev (10, 0,1,0,1,0,1,0,1,1,1);
-    
-    /* ----------------- 6 ------------------ */
-    /* Написать все функции в отдельных файлах в одном пространстве имён, 
-    вызвать их на исполнение в основном файле программы используя указатели на функции. */
-
-
-
-
-
+  
     return 0;
 }

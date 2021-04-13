@@ -4,6 +4,7 @@ namespace MySpace {
 void revers (int m[10]);  
 void revers2 (int m[10]);
 void revers3 (int m[10]);
+int revers4 (int m[10], int i);
 void PlusThree (int m2[8]);
 void PlusThree2 (int m2[8],int s);
 bool FindSameVal (int m3[5]);

@@ -22,6 +22,15 @@ void revers3 (int m[10]) {
         m[i] = !m[i];
 };
 
+int revers4 (int m[10],int i){
+    m[i]=!m[i];
+    i++;
+    if(i==10){
+        return 0;
+    }
+    revers4 (m,i);
+    return 0;
+}
 
 
 void PlusThree (int m2[8])
