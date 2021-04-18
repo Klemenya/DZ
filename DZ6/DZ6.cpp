@@ -4,31 +4,53 @@
 using namespace std;
 FILE *f1, *f2, *f3;
 
+void glue (string &first_f, string &second_f){
+   
+    std::ifstream file2( second_f );
+    file2.seekg(0, std::ios_base::end);
+    size_t lenght2 = file2.tellg();
+    file2.seekg(0, std::ios_base::beg);
+    char* ftext2 = new char [lenght2];
+    file2.read(ftext2, lenght2);
+
+    std::ifstream file1( first_f );
+    file1.seekg(0, std::ios_base::end);
+    size_t lenght1 = file1.tellg();
+    file1.seekg(0, std::ios_base::beg);
+    char* ftext1 = new char [lenght1];
+    file1.read(ftext1, lenght1);
+
+    file1.close();
+    file2.close();
+
+    std::ofstream file3( first_f );
+    file3.write(ftext1,lenght1);
+    file3.write(ftext2,lenght2);
+
+    delete(ftext1);
+    delete(ftext2);
+    file3.close();
+
+}
+
+
+
 int main(){
 
     char text1[] = "London is the capital of Great Britain, its political, economic and cultural centre.";
     char text2[] = "It's one of the largest cities in the world.";
     std::ofstream f1("first.txt");
     std::ofstream f2("second.txt");
-
     f1.write(text1,sizeof(text1));
     f2.write(text2,sizeof(text2));
-
     f1.close();
     f2.close();
 
-    std::ifstream f3("second.txt");
-    f3.seekg(0, std::ios_base::end);
-    size_t lenght = f3.tellg();
-    f3.seekg(0, std::ios_base::beg);
+    string name1 = "first.txt";
+    string name2 = "second.txt";
 
-    char* ftext = new char [lenght];
+    glue ( name1, name2 );
 
-    f3.read(ftext, lenght);
-    f2.open("first.txt", std::ios::app);
-    f2 << ftext;
-    delete(ftext);
-    f2.close();
 
 
     string word_s;
