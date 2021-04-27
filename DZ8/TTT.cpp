@@ -90,7 +90,7 @@ int DispPlayField() {
 			//std::cout << ' ';
 			//std::cout << s array[i][j];
 			switch (array[i][j]) {
-				case 0: std::cout << "| " << '_' << " "; break;
+				case 0: std::cout << "| " << '.' << " "; break;
 				case 1: std::cout << "| " << 'X' << " "; break;
 				case 2: std::cout << "| " << 'O' << " "; break;
 			}
@@ -98,14 +98,19 @@ int DispPlayField() {
 
 		}
 		std::cout <<'|' << std::endl;
+		std::cout << "+";
+		for (int i(0); i < (N * 4 - 1); i++)
+			std::cout << '-';
+		std::cout << "+\n";
 	}
 
 	/*for (int i(0); i < (N *  + 1); i++)
 		std::cout << '-';*/
-	std::cout << '+';
+	
+	/*std::cout << '+';
 	for (int i(0); i < (N * 4 - 1); i++)
 		std::cout << '-';
-	std::cout << '+' << std::endl;
+	std::cout << '+' << std::endl;*/
 
 	std::cout << std::endl;
 	return 0;
